@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class GucontentComponent implements OnInit {
 
-  public res: string[] = [];
+  public res!: Observable<any>;
 
-  constructor(private testService: TestService) { }
+  constructor(public testService: TestService) { }
 
   ngOnInit(): void {
-    this.testService.test().subscribe(res => this.res = res);
+    this.res = this.testService.test();
   }
 
 }
